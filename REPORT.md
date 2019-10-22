@@ -69,7 +69,7 @@ Ouput nodes (action_size)
 ```
 
 
-Note how the Randomized Leaky ReLu activation function was employed. In general, it was found that making use of Leaky ReLu functions was advantageous in stabilized training during the initial episodes.  
+Note how the Randomized Leaky ReLu activation function was employed. In general, it was found that making use of Leaky ReLu functions was advantageous in that it stabilized training during the initial episodes.  
 
 Given the aforementioned parameters and architecture, these are the results obtained for one of the training sessions by training locally (CPU only). The training time was of the order of 180 minutes. The 20-agent environment was solved in 118 episodes.
 
@@ -79,11 +79,6 @@ In comparison with the Benchmark Implementation provided by Udacity (which solve
 
 
 ### Ideas for future work
-
-There are multiple approaches to implement for future work. On the one hand, the approach to evaluating the environment could be modified by training the model on the pixels of the image observed by the agent instead of the state consisting of ray-based description of the surroundings (as suggested in the DRL course).
-
-Alternatively, the architecture of the neural network used to solve the project could be improved. A Double DQN should improve the performance by avoiding the overestimation of the action values usually suffered by a single DQN. Moreover, a Dueling DQN architecture would allow for generalization of the learning process, by implementing a model-free reinforcement learning approach in which the state value function and the action value function are simultaneously estimated by two DQNs.
-Other improvements to the learning process of the agent could be to implement Prioritized Experience Replay, which would allow for smoother and more efficient learning by prioritizing the most important transitions in the replay buffer.
 
 There are multiple approaches to implement for future work. On the one hand, a more thorough investigation could be performed on the tuning of the hyperparameters (in particular the author hypothesizes the learning rates could be modified between the Actor and the Critic, to achieve better performance at latter stages as the learning slowed down after +15 episodes).
 On the other hand, different methods could be used to solve the environment, such as Trust Region Policy Optimization (TRPO) and Truncated Natural Policy Gradient (TNPG). As suggested in this [paper](https://arxiv.org/pdf/1604.06778.pdf), these should be able to provide better performance. Alternatively, Proximal Policy Optimization (PPO) could be used. Top performance may not be as good, but PPO is supposed to be advantageous due to the ease of tuning compared to DDPG, as suggested by OpenAI [here](https://openai.com/blog/openai-baselines-ppo/).
